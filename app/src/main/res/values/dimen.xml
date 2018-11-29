@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="widthLine">5dp</dimen>
+    <dimen name="sizeButton">80dp</dimen>
+    <dimen name="margin_tv">20dp</dimen>
+</resources>
