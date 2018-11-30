@@ -127,7 +127,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/bt7"
         android:layout_marginTop="@dimen/margin_tv"
-        android:text="X"
+        android:text=""
         android:layout_toRightOf="@id/auTourDe"/>
 
     <TextView

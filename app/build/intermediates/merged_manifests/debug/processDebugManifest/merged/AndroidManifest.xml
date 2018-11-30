@@ -19,6 +19,8 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity android:name="com.example.adrien.morpion.MainActivity" >
+        </activity>
+        <activity android:name="com.example.adrien.morpion.PageUneActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

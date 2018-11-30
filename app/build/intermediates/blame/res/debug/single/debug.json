@@ -20,6 +20,10 @@
         "source": "/home/adrien/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/70434e3b232f80bc728de346c207b9fc/res/drawable/abc_btn_colored_material.xml"
     },
     {
+        "merged": "/home/adrien/AndroidStudioProjects/Morpion/app/build/intermediates/res/merged/debug/layout_activity_pageune.xml.flat",
+        "source": "/home/adrien/AndroidStudioProjects/Morpion/app/src/main/res/layout/activity_pageune.xml"
+    },
+    {
         "merged": "/home/adrien/AndroidStudioProjects/Morpion/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_star_black_36dp.png.flat",
         "source": "/home/adrien/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/70434e3b232f80bc728de346c207b9fc/res/drawable-xhdpi-v4/abc_ic_star_black_36dp.png"
     },
@@ -144,12 +148,12 @@
         "source": "/home/adrien/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/70434e3b232f80bc728de346c207b9fc/res/drawable-xhdpi-v4/abc_list_longpressed_holo.9.png"
     },
     {
-        "merged": "/home/adrien/AndroidStudioProjects/Morpion/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "/home/adrien/AndroidStudioProjects/Morpion/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
-    },
-    {
         "merged": "/home/adrien/AndroidStudioProjects/Morpion/app/build/intermediates/res/merged/debug/drawable_o.png.flat",
         "source": "/home/adrien/AndroidStudioProjects/Morpion/app/src/main/res/drawable/o.png"
+    },
+    {
+        "merged": "/home/adrien/AndroidStudioProjects/Morpion/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/home/adrien/AndroidStudioProjects/Morpion/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
     },
     {
         "merged": "/home/adrien/AndroidStudioProjects/Morpion/app/build/intermediates/res/merged/debug/anim_abc_grow_fade_in_from_bottom.xml.flat",

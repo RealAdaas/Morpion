@@ -1,6 +1,7 @@
 package com.example.adrien.morpion;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
     // plateau [colonne][ligne]
     // 0 : case vide
     // 1 : X
@@ -27,10 +29,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ArrayList<Button> all_buttons = new ArrayList<>();
 
+   Player player1;
+   Player player2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        player1 = (Player) getIntent().getExtras().getSerializable("Joueur1");
+        player2 = (Player) getIntent().getExtras().getSerializable("Joueur2");
 
         tvJoueur = (TextView) findViewById(R.id.joueur);
 
@@ -99,6 +108,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 return;
         }
 
+
+         // Met 0 ou X en fonction du joueur en cours lors du clic
         Drawable drawableJoueur;
         if (joueurEnCours == 1)
             drawableJoueur = ContextCompat.getDrawable(this,R.drawable.x);
@@ -107,29 +118,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         view.setBackground(drawableJoueur);
 
+        // Affiche qui doit jouer
         if (joueurEnCours == 1){
             joueurEnCours = 2;
-            tvJoueur.setText("O");
+            tvJoueur.setText(player2.getNomPlayer());
         }else {
             joueurEnCours = 1;
-            tvJoueur.setText("X");
+            tvJoueur.setText(player1.getNomPlayer());
         }
 
         int res = checkWinner();
         displayAlertDialog(res);
     }
 
+
     private int checkWinner (){
+        // verifier si condition de victoire par les Colonnes
         for (int col = 0; col <=2; col++) {
             if (plateau[col][0] != 0 && plateau[col][0] == plateau[col][1] && plateau[col][0] == plateau[col][2]) {
                 return plateau[col][0];
             }
         }
+
+        // verifier si condition de victoire par les Lignes
         for (int line = 0; line <= 2; line++){
             if (plateau[0][line] != 0 && plateau[0][line] == plateau[1][line] && plateau[0][line] == plateau[2][line])
                 return plateau[0][line];
         }
 
+
+        // verifier si condition de victoire par les Diagonales
         if(plateau[0][0] != 0 && plateau[0][0] == plateau [1][1] && plateau[0][0] == plateau[2][2]){
             return plateau[0][0];
         }
@@ -137,6 +155,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return plateau[2][0];
         }
 
+
+        // verification d'égalité
         boolean isPlateauPlein = true;
         for (int col = 0; col <= 2; col++){
             for (int line = 0; line <= 2; line++){
@@ -154,10 +174,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    int pointjoueurX = 0;
-    int pointjoueurO = 0;
-
-
 
     private void displayAlertDialog(int res){
         if (res == 0){
@@ -168,47 +184,55 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView pointJoueurX = (TextView) findViewById(R.id.pointJoueurX);
         TextView pointJoueurO = (TextView) findViewById(R.id.pointJoueur0);
 
-
-        if (pointjoueurO <3 || pointjoueurX < 3) {
+    // methode pour ajouter 1 au joueur qui a gagné
+        if (player1.getScorePlayer() <3 || player2.getScorePlayer() < 3) {
             if (res == 1) {
-                pointjoueurX += 1;
-                pointJoueurX.setText(String.valueOf(pointjoueurX));
-                if (pointjoueurX == 3)
-                    strToDisplay = "Les X ont gagné !";
+                player1.AjouterScore();
+                pointJoueurX.setText(Integer.toString(player1.getScorePlayer()));
+                if (player1.getScorePlayer() == 3)
+                    strToDisplay = player1.getNomPlayer();
             }
             if (res == 2){
-                pointjoueurO += 1;
-                pointJoueurO.setText(String.valueOf(pointjoueurO));
-                if (pointjoueurO == 3)
-                    strToDisplay = "Les O ont gagné";
+                player2.AjouterScore();
+                pointJoueurO.setText(Integer.toString(player2.getScorePlayer()));
+                if (player2.getScorePlayer() == 3)
+                    strToDisplay = player2.getNomPlayer();
             }
             if (res == 3)
                 strToDisplay = "Egalité";
 
         }
-        if (pointjoueurO == 3 || pointjoueurX ==3) {
 
-            AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+
+    // verification de victoire en cas de +3 au score
+        if (player2.getScorePlayer() == 3 || player1.getScorePlayer() ==3) {
+
+            final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
             alertDialog.setTitle("Fin de la partie");
-            alertDialog.setMessage(strToDisplay);
+            alertDialog.setMessage(strToDisplay + "a gagné");
 
             alertDialog.setNeutralButton("Recommencer", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    resetGame();
+                    Intent intent = new Intent(alertDialog.getContext(), PageUneActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+
                 }
             });
             alertDialog.setCancelable(false);
             alertDialog.show();
 
-            pointjoueurO = 0;
-            pointjoueurX = 0;
+            player1.ResetScore();
+            player2.ResetScore();
 
             pointJoueurO.setText("0");
             pointJoueurX.setText("0");
         }
         resetGame();
     }
+
 
     private void resetGame(){
         for (int col = 0; col <= 2; col++) {

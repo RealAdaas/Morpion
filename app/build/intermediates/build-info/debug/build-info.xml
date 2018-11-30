@@ -2,34 +2,35 @@
 <instant-run
     abi="x86"
     api-level="28"
-    build-mode="HOT_WARM"
+    build-mode="COLD"
     density="420dpi"
     format="10"
+    ir-eligibility="FIELD_ADDED"
     plugin-version="3.2.1"
-    timestamp="1543530237763"
+    timestamp="1543593074397"
     token="1461730713623366894"
-    verifier="COMPATIBLE" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="33" />
+        duration="141" />
     <task
         name="instant-run-dex"
-        duration="23" />
+        duration="0" />
     <task
         name="instant-run-transform"
-        duration="19" />
+        duration="14" />
     <task
         name="verifier"
-        duration="2" />
+        duration="0" />
 
     <artifact
-        location="/home/adrien/AndroidStudioProjects/Morpion/app/build/intermediates/reload-dex/debug/classes.dex"
-        type="RELOAD_DEX" />
+        location="/home/adrien/AndroidStudioProjects/Morpion/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+        type="SPLIT" />
 
     <build
         build-mode="FULL"
-        timestamp="1543529641716"
+        timestamp="1543592984971"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/home/adrien/AndroidStudioProjects/Morpion/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
@@ -56,10 +57,10 @@
             location="/home/adrien/AndroidStudioProjects/Morpion/app/build/intermediates/resources/instant-run/debug/resources-debug.apk"
             type="SPLIT" />
         <artifact
-            location="/home/adrien/AndroidStudioProjects/Morpion/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+            location="/home/adrien/AndroidStudioProjects/Morpion/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
             type="SPLIT" />
         <artifact
-            location="/home/adrien/AndroidStudioProjects/Morpion/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
+            location="/home/adrien/AndroidStudioProjects/Morpion/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
             type="SPLIT" />
         <artifact
             location="/home/adrien/AndroidStudioProjects/Morpion/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
@@ -72,44 +73,13 @@
             type="SPLIT_MAIN" />
     </build>
     <build
-        build-mode="HOT_WARM"
-        timestamp="1543529777516"
-        verifier="COMPATIBLE" >
+        build-mode="COLD"
+        ir-eligibility="FIELD_ADDED"
+        timestamp="1543593074397"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="/home/adrien/AndroidStudioProjects/Morpion/app/build/intermediates/builds/debug/1543529777516/classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1543529830171"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="/home/adrien/AndroidStudioProjects/Morpion/app/build/intermediates/builds/debug/1543529830171/classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1543529932606"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="/home/adrien/AndroidStudioProjects/Morpion/app/build/intermediates/builds/debug/1543529932606/classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1543530021899"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="/home/adrien/AndroidStudioProjects/Morpion/app/build/intermediates/builds/debug/1543530021899/classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1543530237763"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="/home/adrien/AndroidStudioProjects/Morpion/app/build/intermediates/reload-dex/debug/classes.dex"
-            type="RELOAD_DEX" />
+            location="/home/adrien/AndroidStudioProjects/Morpion/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+            type="SPLIT" />
     </build>
 
 </instant-run>

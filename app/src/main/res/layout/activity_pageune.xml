@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/joueur1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="112dp"
+        android:text="Joueur 1"
+        android:textAlignment="center" />
+
+
+    <TextView
+        android:id="@+id/joueur2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="221dp"
+        android:text="Joueur 2"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/nomJoueur1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/joueur1"
+        android:layout_alignRight="@id/joueur1"
+        android:layout_below="@+id/joueur1"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/nomJoueur2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/joueur2"
+        android:layout_alignRight="@id/joueur2"
+        android:layout_below="@+id/joueur2"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/buttonLancer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nomJoueur2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        android:text="Lancer"
+        />
+
+</RelativeLayout>
